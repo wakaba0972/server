@@ -1,4 +1,4 @@
-記得加上.env檔
+記得設定環境變數
 ```
 TOKEN=
 GUILDID=
