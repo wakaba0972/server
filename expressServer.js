@@ -1,6 +1,6 @@
 /* 
   Express伺服器的主程式
-  用來處理Unity端的請求
+  之後會用來處理Unity端的請求
 */
 
 const express = require('express');

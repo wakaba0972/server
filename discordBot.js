@@ -1,5 +1,6 @@
 /*
   Discord Bot的主程式
+  不用懷疑, 這裡幾乎都是抄官方文件的XD
 */
 
 const fs = require('node:fs');

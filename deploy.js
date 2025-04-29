@@ -1,6 +1,7 @@
 /*
 	這邊用來部署 Discord 機器人的 Slash Commands。
 	當commands/底下有更新時，才執行這個檔案。
+	這裡也都是抄官方文件XD
 */
 
 require('dotenv').config();
