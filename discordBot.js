@@ -1,3 +1,7 @@
+/*
+  這裡是Discord Bot的主程式
+*/
+
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');

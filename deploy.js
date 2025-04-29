@@ -1,3 +1,8 @@
+/*
+	這邊用來部署 Discord 機器人的 Slash Commands。
+	當commands/底下有更新時，才執行這個檔案。
+*/
+
 const { REST, Routes } = require('discord.js');
 const { clientId, guildId, token } = require('./config.json');
 const fs = require('node:fs');
