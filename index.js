@@ -6,7 +6,7 @@ const { token } = require('./config.json');
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 setCommands(client);
 
-// 執行command
+// 執行指令
 client.on(Events.InteractionCreate, async interaction => {
 	if (!interaction.isChatInputCommand()) return;
 
@@ -29,9 +29,10 @@ client.on(Events.InteractionCreate, async interaction => {
 	}
 });
 
+//登入BOT
 client.login(token)
 
-// 設定commands
+//載入commands/utility底下的指令
 function setCommands(client){
   client.commands = new Collection();
   const foldersPath = path.join(__dirname, 'commands');
