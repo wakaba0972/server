@@ -1,5 +1,5 @@
 /*
-  這裡是Discord Bot的主程式
+  Discord Bot的主程式
 */
 
 const fs = require('node:fs');
@@ -12,6 +12,7 @@ setCommands(client);
 
 // 執行指令
 client.on(Events.InteractionCreate, async interaction => {
+  //如果不是指令就不處理
 	if (!interaction.isChatInputCommand()) return;
 
 	const command = interaction.client.commands.get(interaction.commandName);

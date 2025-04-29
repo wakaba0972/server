@@ -1,5 +1,5 @@
 /* 
-  這裡是Express伺服器的主程式
+  Express伺服器的主程式
   用來處理Unity端的請求
 */
 
