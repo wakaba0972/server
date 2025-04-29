@@ -1,3 +1,7 @@
+/*
+    這裡是topic指令
+*/
+
 const { SlashCommandBuilder } = require('discord.js');
 const Topic = require('../../self_modules/TopicUnit');
 

@@ -1,3 +1,7 @@
+/*
+    這裡是ping指令，測試用的
+*/
+
 const { SlashCommandBuilder } = require('discord.js');
 
 module.exports = {

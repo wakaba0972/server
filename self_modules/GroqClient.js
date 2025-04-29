@@ -1,3 +1,8 @@
+/*
+    GroqClient的類別，用來向Groq發送請求並獲取回應。
+    之後會改成OpenAI，所以這裡也是測試用的
+*/
+
 require('dotenv').config()
 const Groq = require('groq-sdk')
 
