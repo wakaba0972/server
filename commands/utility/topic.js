@@ -4,10 +4,10 @@ const Topic = require('../../self_modules/TopicUnit');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('topic')
-		.setDescription('to generate a script')
+		.setDescription('輸入一個主題，生成一個劇本')
         .addStringOption(option =>
             option.setName('topic')
-                .setDescription('topic')
+                .setDescription('你要的主題')
                 .setRequired(true)
         ),
 	async execute(interaction) {

@@ -2,7 +2,7 @@ require('dotenv').config()
 const Groq = require('groq-sdk')
 
 const MODEL = 'llama3-8b-8192'
-const PROMPT = "用英文生成一個海綿寶寶的劇本，角色從［海綿寶寶、派大星、蟹老闆、章魚哥、川普、小蝸、Elon Musk］中挑選2到3個角色，約400字，用json格式，內容只包含主題、角色台詞和中文翻譯"
+const PROMPT = "用英文生成一個海綿寶寶的劇本，角色從［海綿寶寶、派大星、蟹老闆、章魚哥、川普、小蝸、Elon Musk］中挑選2到3個角色，約400字，用json格式，內容只包含主題、角色台詞和中文翻譯，不要加上你的內心獨白和自言自語"
 
 class GroqClient {
     constructor() {
