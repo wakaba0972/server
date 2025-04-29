@@ -36,7 +36,7 @@ client.on(Events.InteractionCreate, async interaction => {
 //登入BOT
 client.login(process.env.TOKEN);
 
-//載入commands/utility底下的指令
+//載入commands/底下的指令
 function setCommands(client){
   client.commands = new Collection();
   const foldersPath = path.join(__dirname, 'commands');
