@@ -1,0 +1,7 @@
+記得加上.env檔
+```
+TOKEN=
+GUILDID=
+CLIENTID=
+GROQ_API_KEY=
+```
