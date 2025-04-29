@@ -5,7 +5,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
-const { token } = require('./config.json');
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 setCommands(client);
@@ -35,7 +34,7 @@ client.on(Events.InteractionCreate, async interaction => {
 });
 
 //登入BOT
-client.login(token)
+client.login(process.env.TOKEN);
 
 //載入commands/utility底下的指令
 function setCommands(client){
