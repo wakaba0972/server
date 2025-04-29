@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-//const Topic = require('../../self_modules/TopicUnit');
+const Topic = require('../../self_modules/TopicUnit');
 
 module.exports = {
 	data: new SlashCommandBuilder()
