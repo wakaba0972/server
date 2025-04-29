@@ -9,7 +9,7 @@ const Groq = require('groq-sdk')
 const MODEL = 'llama3-70b-8192'
 
 const PROMPT = `
-用英文生成一個海綿寶寶的劇本，角色從［海綿寶寶、派大星、蟹老闆、章魚哥、川普、小蝸、Elon Musk］中挑選2到3個角色，約400字，用json格式如下
+用英文生成一個海綿寶寶的劇本，角色從［海綿寶寶、派大星、蟹老闆、章魚哥、川普、小蝸、Elon Musk］中挑選2到3個角色，約1000字，用json格式如下
 \`\`\`json
 {
   "theme": "主題名稱",
