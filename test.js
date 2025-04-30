@@ -6,7 +6,7 @@ const importDynamic = new Function('modulePath', 'return import(modulePath)');
 
 const { client } = await importDynamic('@gradio/client');
 
-const response_0 = await fetch("https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav");
+const response_0 = await fetch("https://github.com/wakaba0972/server/raw/refs/heads/gradio_test/wavs/ref.mp3");
 const exampleAudio = await response_0.blob();
 						
 //const response_1 = await fetch("undefined");
