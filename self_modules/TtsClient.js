@@ -41,11 +41,11 @@ class ttsClient {
                 "ref_audio_path": "C:\\Users\\88690\\Desktop\\GPT-SoVITS-v4-20250422fix\\output\\denoise_opt\\We're not talking about this - Original vs MS Paint (mp3cut.net) (3).wav",
                 "aux_ref_audio_paths": [],
                 "prompt_lang": "en",
-                "prompt_text": "Then%20you%27ll%20say%20we%27re%20not%20talking%20about%20this%20or%20this%20we%27re%20talking%20about%20thissss!",
+                "prompt_text": "Then you'll say we're not talking about this, or this, we're talking about thissss!",
                 "top_k": 5,
                 "top_p": 1,
                 "temperature": 1,
-                "text_split_method": "cut5",
+                "text_split_method": "cut0",
                 "batch_size": 1,
                 "batch_threshold": 0.75,
                 "split_bucket": true,
@@ -58,8 +58,11 @@ class ttsClient {
                 "repetition_penalty": 1.35,
                 "sample_steps": 32,
                 "super_sampling": false
+            },{
+                responseType: 'arraybuffer',
             });
-            return response.data;
+            return response;
+            
         } catch (error) {
             console.error('Error generating TTS:', error);
             throw error;
