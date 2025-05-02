@@ -1,3 +1,4 @@
+require('dotenv').config();
 const axios = require('axios');
 
 class ttsClient {
@@ -9,7 +10,7 @@ class ttsClient {
 
     async gpt(){
         try {
-            const response = await axios.get('http://localhost:9880/set_gpt_weights?weights_path=GPT_weights_v2/sponge01-e15.ckpt');
+            const response = await axios.get(`${process.env.TTS_SERVER_URL}/set_gpt_weights?weights_path=GPT_weights_v2/sponge01-e15.ckpt`);
             return response.data;
         } catch (error) {
             console.error('Error initializing TTS:', error);
@@ -19,7 +20,7 @@ class ttsClient {
 
     async sovits(){
         try {
-            const response = await axios.get('http://localhost:9880/set_sovits_weights?weights_path=SoVITS_weights_v2/sponge01_e8_s216.pth');
+            const response = await axios.get(`${process.env.TTS_SERVER_URL}/set_sovits_weights?weights_path=SoVITS_weights_v2/sponge01_e8_s216.pth`);
             return response.data;
         } catch (error) {
             console.error('Error initializing TTS:', error);
@@ -35,7 +36,7 @@ class ttsClient {
 
     async tts(){
         try {
-            const response = await axios.post('http://localhost:9880/tts', {
+            const response = await axios.post(`${process.env.TTS_SERVER_URL}/tts`, {
                 "text": this.text,
                 "text_lang": this.lang,
                 "ref_audio_path": "C:\\Users\\88690\\Desktop\\GPT-SoVITS-v4-20250422fix\\output\\denoise_opt\\We're not talking about this - Original vs MS Paint (mp3cut.net) (3).wav",
