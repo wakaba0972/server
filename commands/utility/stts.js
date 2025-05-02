@@ -34,8 +34,9 @@ module.exports = {
             await client.init();
             const result = await client.tts();
 
+            const fileName = Date.now();
             let buffer = Buffer.from(result.data);
-            let filePath = "./wavs/output.wav";
+            let filePath = `./wavs/${fileName}.wav`;
         
             fs.writeFileSync(filePath, buffer, (err) => {
                 if (err) console.error('Error writing file:', err);
@@ -43,8 +44,7 @@ module.exports = {
             });
 
             await interaction.editReply({
-                content: "這是你的語音檔",
-                files: ['./wavs/output.wav']
+                files: [filePath]
             })
         } catch (error) {
             console.error('Error generating TTS:', error);
