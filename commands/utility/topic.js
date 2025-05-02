@@ -16,14 +16,21 @@ module.exports = {
         ),
 	async execute(interaction) {
         const topic = interaction.options.getString('topic');
-        const unit = new Topic("user", topic);
 
-        unit.execute().then((result) => {
-            interaction.reply(result);
+        try{
+            const unit = new Topic("user", topic);
+            unit.execute().then((result) => {
+                interaction.reply(result);
+            }
+            ).catch((error) => {
+                console.error('Error:', error);
+                interaction.reply('error');
+            });
+        } catch (error) {
+            console.error('Error generating topic:', error);
+            interaction.reply({
+                content: "發生錯誤，請稍後再試。",
+            });
         }
-        ).catch((error) => {
-            console.error('Error:', error);
-            interaction.reply('error');
-        });
     }
 };
