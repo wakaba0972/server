@@ -4,18 +4,17 @@
 
 const fs = require('fs');
 const { SlashCommandBuilder } = require('discord.js');
-const ttsClient = require('../../self_modules/Ttsclient');
+const { ttsClient } = require('../../self_modules/Ttsclient');
 
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('stts')
 		.setDescription('輸入文本，生成語音')
         .addStringOption(option =>
-            option.setName('language')
-                .setDescription('設定語言')
+            option.setName('character')
+                .setDescription('選擇角色')
                 .addChoices(
-                    {name: 'zh', value: 'zh'},
-                    {name : 'en', value: 'en'}
+                    {name: '章魚哥', value: 'squidward'},
                 )
                 .setRequired(true)
         )
@@ -26,11 +25,11 @@ module.exports = {
         ),
 	async execute(interaction) {
         const text = interaction.options.getString('text');
-        const language = interaction.options.getString('language');
+        const character = interaction.options.getString('character');
         await interaction.deferReply();
 
         try{
-            let client = new ttsClient(text, "", language);
+            let client = new ttsClient(text, character);
             await client.init();
             const result = await client.tts();
 
