@@ -38,11 +38,18 @@ class ttsClient {
             let sovits_model;
 
             switch (character) {
+                case 'star':
+                    gpt_model = "star04-e50.ckpt";
+                    sovits_model = "star03_e25_s700.pth";
+                    this.ref_audio_path = "../ref_audio/star_ref.wav";
+                    this.ref_text = "啊，我本来要跟你说，我被球球到了，后来雪融化变成了水，我就喝下水了，现在好多了。";
+                    break;
+                    
                 case 'squidward':
                 default:
                     gpt_model = "xxx-e50.ckpt";
                     sovits_model = "xxx_e24_s792.pth";
-                    this.ref_audio_path = "C:\\Users\\88690\\Desktop\\GPT-SoVITS-v4-20250422fix\\output\\uvr5_opt\\squidward02.zh\\main\\vocal_2025-05-03 15-19-46.mkv.reformatted.wav_10.wav";
+                    this.ref_audio_path = "../ref_audio/squidward_ref.wav";
                     this.ref_text = "要是你不想点餐的话，别站在那儿挡住我的光线。";
                 }
 
