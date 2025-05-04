@@ -15,6 +15,7 @@ module.exports = {
                 .setDescription('選擇角色')
                 .addChoices(
                     {name: '章魚哥', value: 'squidward'},
+                    {name: '派大星', value: 'star'},
                 )
                 .setRequired(true)
         )
