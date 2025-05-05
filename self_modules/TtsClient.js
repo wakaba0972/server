@@ -39,9 +39,9 @@ class ttsClient {
 
             switch (character) {
                 case 'star':
-                    gpt_model = "star04-e50.ckpt";
-                    sovits_model = "star03_e25_s700.pth";
-                    this.ref_audio_path = "../ref_audio/star_ref.wav";
+                    gpt_model = "star03-e50.ckpt";
+                    sovits_model = "star04_e25_s675.pth";
+                    this.ref_audio_path = "C:\\Users\\88690\\Desktop\\server\\ref_audio\\star_ref.wav";
                     this.ref_text = "啊，我本来要跟你说，我被球球到了，后来雪融化变成了水，我就喝下水了，现在好多了。";
                     break;
                     
@@ -49,7 +49,7 @@ class ttsClient {
                 default:
                     gpt_model = "xxx-e50.ckpt";
                     sovits_model = "xxx_e24_s792.pth";
-                    this.ref_audio_path = "../ref_audio/squidward_ref.wav";
+                    this.ref_audio_path = "C:\\Users\\88690\\Desktop\\server\\ref_audio\\squidward_ref.wav";
                     this.ref_text = "要是你不想点餐的话，别站在那儿挡住我的光线。";
                 }
 
@@ -61,6 +61,7 @@ class ttsClient {
 
     async tts(){
         try {
+            await this.init(this.character);
             const response = await axios.post(`${process.env.TTS_SERVER_URL}/tts`, {
                 "text": this.text,
                 "text_lang": "zh",
