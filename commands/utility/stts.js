@@ -4,7 +4,7 @@
 
 const fs = require('fs');
 const { SlashCommandBuilder } = require('discord.js');
-const { ttsClient } = require('../../self_modules/Ttsclient');
+const { ttsClient } = require('../../self_modules/TtsClient');
 
 module.exports = {
 	data: new SlashCommandBuilder()
