@@ -4,6 +4,7 @@
 
 const { SlashCommandBuilder } = require('discord.js');
 const Topic = require('../../self_modules/TopicUnit');
+const fs = require('fs');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -22,9 +23,14 @@ module.exports = {
             const unit = new Topic("user", topic);
 
             let result = await unit.execute();
+
+            // 測試用回應
             await interaction.editReply({
                 content: "\`\`\`json\n" + result + "\`\`\`"
             });
+
+            // 儲存至/results/scripts/
+            fs.writeFile(`./results/scripts/${Date.now()}.json`, result, ()=>{});
 
         } catch (error) {
             console.error('Error generating topic:', error);
