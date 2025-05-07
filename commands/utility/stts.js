@@ -36,7 +36,7 @@ module.exports = {
 
             const fileName = Date.now();
             let buffer = Buffer.from(result.data);
-            let filePath = `./wavs/${fileName}.wav`;
+            let filePath = `./results/wavs/${fileName}.wav`;
         
             fs.writeFileSync(filePath, buffer, (err) => {
                 if (err) console.error('Error writing file:', err);
