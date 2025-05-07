@@ -9,30 +9,29 @@ const Groq = require('groq-sdk')
 const MODEL = 'llama3-70b-8192'
 
 const PROMPT = `
-用英文生成一個海綿寶寶的劇本，角色從［海綿寶寶、派大星、蟹老闆、章魚哥、川普、小蝸、Elon Musk］中挑選2到3個角色，約1000字，用json格式如下
+用中文生成一個海綿寶寶的劇本，角色從［海綿寶寶、派大星、蟹老闆、章魚哥、小蝸］中挑選2到3個角色，臺詞總共約400字，用json格式如下
 \`\`\`json
 {
-  "theme": "主題名稱",
+  "topic": "主題名稱",
   "script": [
     {
       "character": "A",
-      "text": "hi",
-      "translation": "嗨"
+      "text": "嗨",
     },
     {
       "character": "B",
-      "text": "hi",
-      "translation": "嗨"
+      "text": "嗨",
     },
     {
       "character": "C",
-      "text": "hi",
-      "translation": "嗨"
+      "text": "嗨",
     },
   ]
-}，不要加上你的內心獨白和自言自語，直接給我Json劇本
+}
 \`\`\`
 `
+
+const WARNING = "'''只要輸出json劇本就好，不要添加其他文字'''";
 
 class GroqClient {
     constructor() {
@@ -46,7 +45,7 @@ class GroqClient {
         const chatCompletion = await this.client.chat.completions.create({
             messages: [{ 
                 //role: 'system', content: prompt,
-                role: 'user', content: PROMPT + ",主題是" + message,
+                role: 'user', content: `${PROMPT},主題是${message},${WARNING}`,
             }],
             model: MODEL,
             });
