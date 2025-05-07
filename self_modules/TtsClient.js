@@ -1,8 +1,8 @@
 require('dotenv').config();
 const axios = require('axios');
 
-var NOW_CHARACTER = '';
-module.exports.NOW_CHARACTER = NOW_CHARACTER;
+var CURRENT_CHARACTER = '';
+module.exports.CURRENT_CHARACTER = CURRENT_CHARACTER;
 
 class ttsClient {
     constructor(text, character){
@@ -33,7 +33,7 @@ class ttsClient {
     }
 
     async init(character){
-        if(character != NOW_CHARACTER){
+        if(character != CURRENT_CHARACTER){
             let gpt_model;
             let sovits_model;
 
