@@ -1,7 +1,5 @@
 /*
-    將一個用戶的topic指令封裝成Topic Unit物件
-    為啥? 因為這個topic要先送給LLM, 再送給TTS, 最後送給Unity
-    封裝成一個class這樣比較好管理
+    因為系統架構有變更，之後這裡可能會最做修改
 */
 
 const GroqClient = require('./GroqClient');
