@@ -15,9 +15,15 @@ app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
+// scripts路由，用來回傳JSON劇本
 app.get('/scripts', (req, res) => {
     const id = req.query.id;
     const filePath = `./results/scripts/${id}.json`;
+
+    if (!fs.existsSync(filePath)) {
+        res.status(404).send('File not found');
+        return;
+    }
 
     fs.readFile(filePath, (err, data)=> {
         if (err) throw err;
