@@ -54,6 +54,7 @@ class ttsClient {
     // SoVITS模型預設在GPT-SoVITS-v4/SoVITS_weights_v2/底下
     // 參考音檔預設在GPT-SoVITS-v4/ref_audios/底下
     // 參考台詞目前是寫死在程式碼的，之後可能會再修改^^
+    // 若上述參數和你的不同，請自行修改
     async init(character){
         if(character != CURRENT_CHARACTER){
             let gpt_model;
