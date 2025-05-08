@@ -4,6 +4,7 @@
 
 const { SlashCommandBuilder } = require('discord.js');
 const Topic = require('../../self_modules/TopicUnit');
+const addCounterSafely  = require('../../self_modules/SafeCounter');
 const fs = require('fs');
 
 module.exports = {
@@ -21,17 +22,16 @@ module.exports = {
 
         try{
             const unit = new Topic("user", topic);
-
             let result = await unit.execute();
+
+            // 讀取counter後，儲存至/results/scripts/
+            const counter = await addCounterSafely();
+            fs.writeFile(`./results/scripts/${counter}.json`, result, ()=>{});
 
             // 測試用回應
             await interaction.editReply({
-                content: "\`\`\`json\n" + result + "\`\`\`"
+                content: `你的編號為: ${counter}\n` + "\`\`\`json\n" + result + "\`\`\`"
             });
-
-            // 儲存至/results/scripts/
-            fs.writeFile(`./results/scripts/${Date.now()}.json`, result, ()=>{});
-
         } catch (error) {
             console.error('Error generating topic:', error);
             await interaction.editReply({
