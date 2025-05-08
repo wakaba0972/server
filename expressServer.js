@@ -1,8 +1,3 @@
-/* 
-  Express伺服器的主程式
-  之後會用來處理Unity端的請求
-*/
-
 const fs = require('fs');
 const express = require('express');
 const PORT = process.env.PORT || 3000;
@@ -13,7 +8,9 @@ app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
-// scripts路由，用來回傳JSON劇本
+// scripts路由，用來回傳劇本
+// 路由中的參數id是劇本的編號，也是檔名
+// 呼叫此路由後會讀取/results/scripts/下名為{id}.json的檔案，並回傳
 app.get('/scripts', (req, res) => {
     const id = req.query.id;
     const filePath = `./results/scripts/${id}.json`;

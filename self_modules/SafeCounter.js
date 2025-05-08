@@ -1,11 +1,9 @@
-/*
-    在./data/counter.json儲存一個持久化的變數counter
-    為了避免同時讀寫檔案出現問題，每次使用時，用proper-lockfile將檔案鎖定
-*/
-
 const fs = require('fs/promises');
 const lockfile = require('proper-lockfile');
 
+// 從/data/counter.json讀取持久化變數counter，將其值+1後寫回去，並回傳counter的值
+// counter是用來記錄目前劇本的編號，並會用來作為劇本的檔名，儲存在/results/scripts/底下
+// 為了避免同時讀寫檔案，每次呼叫此函數時，利用proper-lockfile將檔案鎖定
 module.exports = async function addCounterSafely(file = './data/counter.json') {
     let release;
     try {
