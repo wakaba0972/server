@@ -16,7 +16,7 @@ app.get('/scripts', (req, res) => {
     const filePath = `./results/scripts/${id}.json`;
 
     if (!fs.existsSync(filePath)) {
-        res.status(404).send('File not found');
+        res.status(404).send('Error: File not found');
         return;
     }
 
@@ -25,6 +25,19 @@ app.get('/scripts', (req, res) => {
         res.setHeader('Content-Type', 'application/json');
         res.send(data);
     });
+});
+
+// Check路由，用來檢查劇本是否存在
+app.get('/check', (req, res) => {
+    const id = req.query.id;
+    const filePath = `./results/scripts/${id}.json`;
+
+    if (fs.existsSync(filePath)) {
+        res.send('True');
+    }
+    else{
+        res.send('False');
+    }
 });
 
 // 啟動server

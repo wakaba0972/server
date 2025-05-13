@@ -31,8 +31,7 @@ module.exports = {
 
         try{
             let client = new ttsClient(text, character);
-            await client.init();
-            const result = await client.tts();
+            const result = await client.ctts();
 
             const fileName = Date.now();
             let buffer = Buffer.from(result.data);
