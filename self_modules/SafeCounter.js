@@ -8,7 +8,7 @@ module.exports = async function addCounterSafely(file = './data/counter.json') {
     let release;
     try {
         release = await lockfile.lock(file);
-        const data = await fs.readFile(file, 'utf-8');
+        const data = await fs.readFile(file);
         const jsonData = JSON.parse(data);
         jsonData.counter = (jsonData.counter || 0) + 1;
         await fs.writeFile(file, JSON.stringify(jsonData, null, 2));
@@ -18,4 +18,20 @@ module.exports = async function addCounterSafely(file = './data/counter.json') {
     } finally {
         if (release) await release();
     }
+}
+
+// 從/data/counter.json讀取持久化變數counter，並回傳counter的值
+module.exports = async function getCounterSafely(file = './data/counter.json') {
+    let release;
+    try {
+        release = await lockfile.lock(file);
+        const data = await fs.readFile(file);
+        const jsonData = JSON.parse(data); 
+        return jsonData.counter;
+    }
+    catch (err) {
+        console.error('Error: /self_modules/SafeCounter.js: ', err);
+    } finally {
+        if (release) await release();
+    }   
 }
