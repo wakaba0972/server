@@ -2,5 +2,7 @@
 /node_modules/
 tempCodeRunnerFile.js
 test.js
-/results/scripts/*.*
-/results/wavs/*.*
+/results/scripts/*
+/results/wavs/*
+!/results/scripts/.gitkeep
+!/results/wavs/.gitkeep
