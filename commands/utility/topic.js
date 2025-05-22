@@ -4,7 +4,7 @@
 
 const { SlashCommandBuilder } = require('discord.js');
 const Topic = require('../../self_modules/TopicUnit');
-const addCounterSafely  = require('../../self_modules/SafeCounter');
+const SafeCounter  = require('../../self_modules/SafeCounter');
 const fs = require('fs');
 
 module.exports = {
@@ -25,7 +25,8 @@ module.exports = {
             let result = await unit.execute();
 
             // 讀取counter後，儲存至/results/scripts/
-            const counter = await addCounterSafely();
+            const counter = await SafeCounter.addCounterSafely();
+            console.log('counter: ', counter);
             fs.writeFile(`./results/scripts/${counter}.json`, result, ()=>{});
 
             // 測試用回應
