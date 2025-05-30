@@ -14,8 +14,10 @@ module.exports = {
             option.setName('character')
                 .setDescription('選擇角色')
                 .addChoices(
-                    {name: '章魚哥', value: 'squidward'},
-                    {name: '派大星', value: 'star'},
+                    {name: '章魚哥', value: '章魚哥'},
+                    {name: '派大星', value: '派大星'},
+                    {name: '海綿寶寶', value: '海綿寶寶'},
+                    {name: '蟹老闆', value: '蟹老闆'},
                 )
                 .setRequired(true)
         )
