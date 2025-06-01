@@ -5,7 +5,7 @@ const MODEL = 'llama-3.3-70b-versatile';
 const SYSTEM_PROMPT = '永遠以json格式輸出劇本';
 const WARNING = "'''只要輸出json劇本就好，不要添加其他文字'''";
 const USER_PROMPT = `
-生成一段有趣且無俚頭的海綿寶寶對話劇本，**內容一定要與給予的主題有關**，角色從［海綿寶寶、派大星、蟹老闆、章魚哥］中挑選2到3個角色，臺詞總共約10句，台詞中若出現"比基尼海底"替換為"比奇堡"，若出現"克拉斯蒂克拉布"替換為"蟹堡王"，若出現"克拉布肉餅漢堡"等，替換為"蟹堡"，永遠以json格式輸出劇本，不准添加其他文字，json格式如下:
+生成一段無腦白癡且無俚頭的海綿寶寶對話劇本，**內容一定要與給予的主題有關**，角色從［海綿寶寶、派大星、蟹老闆、章魚哥］中挑選2到3個角色，個性要與角色相符，臺詞約10句左右，台詞中若出現"比基尼海底"替換為"比奇堡"，若出現"克拉斯蒂克拉布"替換為"蟹堡王"，若出現"克拉布肉餅漢堡"等，替換為"蟹堡"，永遠以json格式輸出劇本，不准添加其他文字，json格式如下:
 {
   "topic": "打招呼",
   "script": [
@@ -51,7 +51,7 @@ class GroqClient {
             return chatCompletion.choices[0].message.content;
         }
         catch (error) {
-            console.error('Error generating chat completion:', error);
+            console.error('Error generating chat completion:');
             throw error;
         }
     }

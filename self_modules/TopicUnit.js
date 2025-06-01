@@ -14,6 +14,9 @@ class Topic{
     async execute(){
         let groq_request = new GroqClient();
         let result = await groq_request.send(this.topic);
+        result = JSON.parse(result);
+        result['topic'] = this.topic;
+        result = JSON.stringify(result, null, 2);
         return result;
     }
 }

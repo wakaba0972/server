@@ -29,20 +29,15 @@ module.exports = {
             console.log('counter: ', counter);
             fs.writeFile(`./results/scripts/${counter}.json`, result, ()=>{});
 
-            // 測試用回應
-            /*await interaction.editReply({
-                content: `你的編號為: ${counter}\n` + "\`\`\`json\n" + result + "\`\`\`"
-            });*/
-
             // 正式回應
             await interaction.editReply({
                 content: `你的編號為: ${counter}\n`,
             });
 
         } catch (error) {
-            console.error('Error: ./commands/utility/topic.js: ', error);
+            console.error('Error: ./commands/utility/topic.js:');
             await interaction.editReply({
-                content: "發生錯誤"
+                content: "發生錯誤，再試一次^^"
             });
         }
     }
